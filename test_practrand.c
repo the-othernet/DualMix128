@@ -15,8 +15,8 @@ uint64_t rotateLeft(unsigned long long x, int k) { return (x << k) | (x >> (64 -
 
 inline uint64_t dualMix128() {
     uint64_t mix = state0 + state1;
-    state0 = mix + rotateLeft(state0, 26);
-    state1 = mix ^ rotateLeft(state1, 35);
+    state0 = mix + rotateLeft(state0, 16);
+    state1 = mix + rotateLeft(state1, 2);
 
     return GR * mix;
 }
