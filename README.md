@@ -6,17 +6,13 @@ This repository contains `DualMix128`, a simple and extremely fast pseudo-random
 
 * **High Performance:** Significantly faster than standard library generators and competitive with or faster than other modern high-speed PRNGs like wyrand and xoroshiro128++.
 * **Good Statistical Quality:** Has passed PractRand with zero anomalies (256MB to 32TB) as well as TestU01's BigCrush suite.
+* **Possibly Injective:** Z3 Prover has so far been unable to disprove injectivity.
 
 ## Performance
 
-* **Speed:** 9.05x Java random, 26% faster than Java xoroshiro128++, 104% faster than C xoroshiro128++ ([benchmark](benchmark.out))
-* Passed 256M to 32TB PractRand with zero anomalies ([results](test_practrand.out))
-* Passed BigCrush with these lowest p-values: ([results](test_bigcrush.out))
-    * `0.02` smarsa_CollisionOver (N=30, n=20000000, r=0, d=64, t=7)
-    * `0.02` sstring_PeriodsInStrings (N=10, n=500000000, r=20, s=10)
-    * `0.04` svaria_SampleMean test: (N=20000000, n=30, r=0)
-    * `0.05` sknuth_CouponCollector test: (N=1, n=200000000, r=10, d= 8)
-    * `0.05` sknuth_MaxOft test: (N=20, n=10000000, r=0, d=100000, t=24)
+* **Speed:** 8.82x Java random, 27% faster than Java xoroshiro128++, 107% faster than C xoroshiro128++ ([benchmark](benchmark.out))
+* Passed 256M to 8TB PractRand with zero anomalies (so far)
+* Passed BigCrush
 
 ## Algorithm Details
 
@@ -35,8 +31,8 @@ static inline uint64_t rotateLeft(const uint64_t x, int k) {
 // --- DualMix128 ---
 uint64_t dualMix128() {
     uint64_t mix = state0 + state1;
-    state0 = mix + rotateLeft( state0, 26 );
-    state1 = mix ^ rotateLeft( state1, 35 );
+    state0 = mix + rotateLeft( state0, 16 );
+    state1 = mix + rotateLeft( state1, 2 );
 
     return GR * mix;
 }
@@ -50,7 +46,7 @@ uint64_t dualMix128() {
 As running BigCrush and PractRand can behave differently depending on the initial seeded states, PractRand was also run multiple times from 256M to 8GB using varied initial seeds (seeding with SplitMix64). Below are the counts of total suspicious results when running PractRand 1000 times for the DualMix128 variants and some reference PRNGs:
 
 ```
-DualMix128          0 failures, 24 suspicious
+DualMix128          0 failures, 23 suspicious
 xoroshiro256++      0 failures, 27 suspicious
 xoroshiro128++      0 failures, 28 suspicious
 wyrand              0 failures, 32 suspicious
