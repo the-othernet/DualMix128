@@ -33,8 +33,8 @@ uint64_t splitmix64_next(uint64_t *sm_state) {
 static double dualMix128() {
     uint64_t mix = state0 + state1;
     // Use consistent uint64_t type for rotateLeft argument
-    state0 = mix + rotateLeft(state0, 26);
-    state1 = mix ^ rotateLeft(state1, 35);
+    state0 = mix + rotateLeft(state0, 16);
+    state1 = mix + rotateLeft(state1, 2);
 
     return ( (GR * mix) >> 11) * (1.0/9007199254740992.0);
 }
