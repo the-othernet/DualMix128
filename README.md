@@ -32,8 +32,8 @@ This repository contains `DualMix128A` and `DualMix128B`, two simple and extreme
 ## Algorithm Details
 
 ```c
-const unsigned long long GR = 0x9e3779b97f4a7c15ULL; // Golden ratio fractional part * 2^64
-unsigned long long state0, state1; // initialized to non-zero with SplitMix64 (or equivalent)
+const uint64_t GR = 0x9e3779b97f4a7c15ULL; // Golden ratio fractional part * 2^64
+uint64_t state0, state1; // initialized to non-zero with SplitMix64 (or equivalent)
 
 // Helper for rotation
 static inline uint64_t rotateLeft(const uint64_t x, int k) {
@@ -41,8 +41,8 @@ static inline uint64_t rotateLeft(const uint64_t x, int k) {
 }
 
 // --- DualMix128A ---
-unsigned long long nextDualMixA() {
-    unsigned long long mix = state0 + state1;
+uint64_t nextDualMixA() {
+    uint64_t mix = state0 + state1;
     state0 = mix + rotateLeft( state0, 26 );
     state1 = mix ^ rotateLeft( state1, 35 );
 
@@ -50,8 +50,8 @@ unsigned long long nextDualMixA() {
 }
 
 // --- DualMix128B ---
-unsigned long long nextDualMixB() {
-    unsigned long long mix = state0 + state1;
+uint64_t nextDualMixB() {
+    uint64_t mix = state0 + state1;
     state0 = mix + rotateLeft( state0, 26 );
     state1 = mix ^ rotateLeft( state1, 35 );
 
