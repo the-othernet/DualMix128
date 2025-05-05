@@ -4,7 +4,7 @@ This repository contains `DualMix128`, a simple and extremely fast pseudo-random
 
 ## Features
 
-* **High Performance:** Significantly faster than standard library generators and competitive with or faster than other modern high-speed PRNGs like xoroshiro128++ and wyrand.
+* **High Performance:** Significantly faster than standard library generators and competitive with or faster than other modern high-speed PRNGs like wyrand and xoroshiro128++.
 * **Good Statistical Quality:** Has passed PractRand with zero anomalies (256MB to 32TB) as well as TestU01's BigCrush suite.
 
 ## Performance
