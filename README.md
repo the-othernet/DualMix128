@@ -9,9 +9,9 @@ This repository contains `DualMix128`, a simple and extremely fast pseudo-random
 
 ## Performance
 
-* **Speed:** 9.05x Java random, 26% faster than Java xoroshiro128++, 104% faster than C xoroshiro128++
-* Passed 256M to 32TB PractRand with zero anomalies
-* Passed BigCrush with these lowest p-values:
+* **Speed:** 9.05x Java random, 26% faster than Java xoroshiro128++, 104% faster than C xoroshiro128++ ([benchmark](benchmark.out))
+* Passed 256M to 32TB PractRand with zero anomalies ([results](test_practrand.out))
+* Passed BigCrush with these lowest p-values: ([results](test_bigcrush.out))
     * `0.02` smarsa_CollisionOver (N=30, n=20000000, r=0, d=64, t=7)
     * `0.02` sstring_PeriodsInStrings (N=10, n=500000000, r=20, s=10)
     * `0.04` svaria_SampleMean test: (N=20000000, n=30, r=0)
