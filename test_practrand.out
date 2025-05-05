@@ -1,4 +1,4 @@
->> gcc -o dualmix128_gen dualmix128_gen.c -O3 && ./dualmix128_gen | ./PractRand/bin/RNG_test stdin64
+>> gcc -o test_practrand test_practrand.c -O3 && ./test_practrand | ./PractRand/bin/RNG_test stdin64
 
 RNG_test using PractRand version 0.94
 RNG = RNG_stdin64, seed = unknown
