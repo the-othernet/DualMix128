@@ -53,8 +53,8 @@ double get_time_sec() {
 // DualMix128 generator function
 inline uint64_t dualMix128() {
     uint64_t mix = state0 + state1;
-    state0 = mix + rotateLeft(state0, 26);
-    state1 = mix ^ rotateLeft(state1, 35);
+    state0 = mix + rotateLeft(state0, 16);
+    state1 = mix + rotateLeft(state1, 2);
 
     return GR * mix;
 }
