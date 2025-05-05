@@ -5,12 +5,12 @@ gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Benchmarking PRNGs for 10000000000 iterations...
 
 Benchmarking DualMix128...
-  DualMix128 ns/call:     0.361 ns
+  DualMix128 ns/call:     0.401 ns
 
 Benchmarking xoroshiro128++...
-  xoroshiro128++ ns/call: 0.735 ns
+  xoroshiro128++ ns/call: 0.829 ns
 
 Benchmarking wyrand...
-  wyrand ns/call:         0.358 ns
+  wyrand ns/call:         0.401 ns
 
 Benchmark complete.
