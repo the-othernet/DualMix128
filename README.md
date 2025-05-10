@@ -1,5 +1,9 @@
 # DualMix128: Fast and Robust 128-bit Pseudo-Random Number Generator
 
+
+**DualMix128 has been replaced by LoopMix128 (a PRNG with similar benchmarks, proven injectivity and a guaranteed 2^128 period)**: 
+[https://github.com/danielcota/LoopMix128](https://github.com/danielcota/LoopMix128)
+
 This repository contains `DualMix128`, a simple and extremely fast pseudo-random number generator (PRNG) with 128 bits of state. It is designed for non-cryptographic applications where speed and statistical quality are important.
 
 ## Features
